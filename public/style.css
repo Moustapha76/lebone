@@ -73,19 +73,23 @@ a{text-decoration: none;color: var(--dark);transition: all .3s linear;}
 }
 .flex{display: flex;}
 .grid{display: grid;}
-.navbar{justify-content: space-between;padding: 1vh 10%;position: fixed;width: 100%;transition: all .3s linear;}
+.navbar{justify-content: space-between;padding: 1vh 10%;position: fixed;width: 100%;transition: all .3s linear;z-index: 999;}
 .navbar.fixed{
     top: 0;
     width: 100%;
     background: var(--white);
-    padding: 10px 10%;
+    padding: 3px 10%;
     z-index: 99;
     box-shadow: 10px 10px 50px #7b7b7b14;
+}
+
+.navbar.flex.fixed a.logo img {
+    width: 60px;
 }
 a.logo{
     display: flex;
 }
-a.logo img{width: 80px;}
+a.logo img{width: 150px;}
 header .burger,.closeBtn{display: none;}
 
 a.logo strong {
@@ -373,6 +377,7 @@ main section.atout .container .default-card {
     height: 100%;
     object-fit: contain;
     opacity: 1;
+    filter: grayscale(1);
 }
 
 .tarif-card:hover span {
@@ -407,7 +412,7 @@ main section.atout .container .default-card {
 .cases-container{
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 10px;
 }
 section.cases .controls{
     padding: 1% 0% 2%;
@@ -416,7 +421,10 @@ section.cases .controls{
     justify-content: center;
     border-bottom: 1px solid #c28f0430;
   }
-
+.event-item{display: flex;gap: 5%;}
+.event-item .description{display: flex;flex-direction: column;width: 50%;justify-content: space-around;align-items: flex-start;background: #fff4e3;padding: 2% 4%;font-size: 14px;}
+.img-event{width: 50%;}
+.img-event img{width: 100%;height: 100%;}
   
 section.cases button{
     display: inline-block;
@@ -450,9 +458,10 @@ section.cases button{
   
   section.cases .container{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     overflow: hidden;
-    grid-gap: 40px;
+    grid-gap: 20px;
+    padding: 20px;
   }
   
   section.cases  .container:after{
@@ -471,15 +480,17 @@ section.cases button{
   section.cases .container .mix{
     text-align: left;
     display: none;
+    width: 100%;
   }
 
 .mix .default-card {
-    padding: 0;
+    padding: 20px 20px;
     margin: 0;
     background: transparent;
     align-items: flex-start;
     box-shadow: none;
     backdrop-filter: blur(0px);
+    box-shadow: 10px 10px 40px #0000000d;
 }
 .mix .default-card .btn{border: 0;padding: 0;}
 .mix .default-card:hover {
@@ -668,7 +679,7 @@ section.infos .item{
     text-align: left;
     gap: 20px;
     width: 33%;
-    background: #ffffff2e;
+    background: #ffffff0a;
     backdrop-filter: blur(10px);
     justify-content: flex-start;
     padding: 20px 40px;
@@ -705,7 +716,7 @@ section.infos .item span.ico:before {
 }
 section.infos .item h3{
     font-size: 20px;
-    color: var(--black);
+    color: var(--main-color);
 }
 
 section.infos .item a {color: var(--light);}
@@ -729,11 +740,10 @@ footer form input{
     transition: all .3s linear;
 }
 footer form input[type="mail"]{
-    background: #000000fa;
+    background: #ffffff1a;
     color: var(--black);
     width: 70%;
-    opacity: 1;
-    font-size: 15px;
+    opacity: .5;
     padding: 10px 15px 10px;
 }
 footer form input[type="mail"]:hover{opacity: 1;}
@@ -758,6 +768,8 @@ h3.new-title {
 footer{
     padding: 4% 10% 2%;
     position: relative;
+    background: var(--black);
+    color: var(--white);
 }
 .footer-1{
     display: flex;
@@ -771,6 +783,11 @@ footer .bloc{
     width: 25%;
     align-items: flex-start;
     gap: 10px;
+    border-right: 1px solid #d4932c3b;
+}
+
+footer .bloc:last-child {
+    border-right: 0;
 }
 
 footer .bloc ul {
@@ -782,8 +799,8 @@ footer .bloc ul {
 }
 
 footer .bloc ul li a {
-    color: var(--black);
     font-size: 16px;
+    color: var(--white);
 }
 
 footer .bloc ul li a:hover {
@@ -836,11 +853,10 @@ footer .bloc h3{
     display: flex;
     justify-content: space-between;
     padding: 2% 0% 0;
-    border-top: 1px solid #0000002b;
+    border-top: 1px solid #ffffff1a;
     letter-spacing: 1.5px;
     font-size: 14px;
     color: var(--black);
-    background: var(--white);
 }
 
 section.footer-2 i {
